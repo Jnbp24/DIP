@@ -1,0 +1,1 @@
+All lessons for DIP - 3. semester

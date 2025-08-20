@@ -29,18 +29,15 @@ function binarySearch(arr, target) {
         }
     }
 
-    return -1; // Not found
+    return -1; 
 }
 
-// Example list of numbers
 let numbers = [42, 7, 19, 3, 25, 10];
 console.log("Original list:", numbers);
 
-// Sort the list
 bubbleSortNumbers(numbers);
 console.log("Sorted list:", numbers);
 
-// Test binary search with different numbers
 let testNumbers = [19, 5, 42, 100, 3];
 
 testNumbers.forEach((num) => {
