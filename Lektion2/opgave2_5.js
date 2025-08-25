@@ -8,7 +8,7 @@ console.log("Initial persons");
 console.log(persons);
 
 //Add new person to array
-persons.push({name: "Diana Prince", email: "diana@example.com", mobile: "456-789-0123"});
+persons.push({ name: "Diana Prince", email: "diana@example.com", mobile: "456-789-0123" });
 console.log("Added new person");
 console.log(persons);
 
@@ -20,6 +20,6 @@ console.log("Updated Bobs email:");
 console.log(persons[1]);
 
 
-persons.splice(2,1); //Start at index 2, remove 1 element from the list and correctly moves the rest of the list
+persons.splice(2, 1); //Start at index 2, remove 1 element from the list and correctly moves the rest of the list
 console.log("\nAfter removing Charlie:")
 console.log(persons);
