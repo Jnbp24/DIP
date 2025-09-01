@@ -1,0 +1,27 @@
+/* Make all images responsive */
+img {
+    max-width: 100%;    /* ensures images shrink with their container */
+    height: auto;       /* keeps aspect ratio */
+    display: block;     /* removes extra spacing below images */
+    margin: 0 auto;     /* centers images in table cells */
+}
+
+/* Table layout */
+table {
+    width: 90%;            /* table takes most of viewport width */
+    max-width: 800px;      /* prevents table from stretching too wide */
+    border-collapse: collapse; 
+    table-layout: fixed;   /* ensures columns scale proportionally */
+}
+
+/* Table cells */
+td {
+    padding: 10px;
+    vertical-align: top;   /* aligns content to top of cell */
+}
+
+/* Paragraph spacing inside table cells */
+p {
+    margin: 0 0 10px 0;    /* bottom margin for spacing between paragraphs */
+    text-align: left;      /* keep text neatly aligned */
+}
