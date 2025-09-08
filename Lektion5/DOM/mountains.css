@@ -1,0 +1,18 @@
+
+h1{
+    color: red;
+    text-align: center;
+    
+}
+
+table {
+    border-collapse: collapse; /* removes double borders */
+    border: 5px solid blue;
+    margin: 0 auto;
+}
+
+td {
+    padding: 5px;           
+    text-align: left;       
+    border: 5px solid blue; 
+}
