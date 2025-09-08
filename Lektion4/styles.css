@@ -1,0 +1,38 @@
+
+.griddle {
+    height: 100vh;
+    text-align: center;
+    font-family: sans-serif;
+    display: grid;
+    grid-template-columns: 120px, 1fr, 120px;
+}
+
+
+.cake {
+    background-color: lemonchiffon;
+}
+
+.fillings{
+    background-color: rgb(241, 145, 134);
+    padding: 2%;
+}
+
+.bottom {
+    text-align: center;
+    padding: 2%;
+
+}
+
+.cheese > h2 {
+    background-color: green;
+}
+
+
+@media (min-width: 700px){
+    .griddle {
+        height: 100vh;
+        text-align: center;
+        display: grid;
+        grid-template-rows: 120px, 1fr, 120px;
+    }
+}

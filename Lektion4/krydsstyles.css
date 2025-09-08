@@ -1,0 +1,9 @@
+.brætspil{
+    display: grid;
+    grid-template-columns: auto,auto;
+    grid-template-rows: auto;
+    grid-template-areas:
+    "a b"
+    "c d";
+}
+
