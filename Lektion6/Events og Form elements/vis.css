@@ -1,0 +1,14 @@
+body {
+    display: grid;
+    grid-template-columns: 60px 60px;
+    grid-template-rows: repeat(2, 25px);
+    gap: 5px;
+}
+
+label:hover{
+    cursor: pointer;
+}
+
+input:hover{
+    cursor: pointer;
+}

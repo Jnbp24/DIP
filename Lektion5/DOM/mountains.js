@@ -1,11 +1,11 @@
 const MOUNTAINS = [
-    {name: "Kilimanjaro", height: 5895, location: "Tanzania"},
-    {name: "Everest", height: 8848, location: "Nepal"},
-    {name: "Mount Fuji", height: 3776, location: "Japan"},
-    {name: "Vaalserberg", height: 323, location: "Netherlands"},
-    {name: "Denali", height: 6168, location: "United States"},
-    {name: "Popocatepetl", height: 5465, location: "Mexico"},
-    {name: "Mont Blanc", height: 4808, location: "Italy/France"}
+    { name: "Kilimanjaro", height: 5895, location: "Tanzania" },
+    { name: "Everest", height: 8848, location: "Nepal" },
+    { name: "Mount Fuji", height: 3776, location: "Japan" },
+    { name: "Vaalserberg", height: 323, location: "Netherlands" },
+    { name: "Denali", height: 6168, location: "United States" },
+    { name: "Popocatepetl", height: 5465, location: "Mexico" },
+    { name: "Mont Blanc", height: 4808, location: "Italy/France" }
 ];
 
 // Header
@@ -35,7 +35,7 @@ const tbody = document.createElement('tbody');
 
 MOUNTAINS.forEach(mountain => {
     const row = document.createElement('tr');
-    
+
     const name = document.createElement('td');
     name.textContent = mountain.name;
     row.appendChild(name);
