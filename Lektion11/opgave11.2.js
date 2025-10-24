@@ -14,7 +14,7 @@ async function showUsers(){
     try {
         const users = await get(userUrl);
         const tbody = document.querySelector('#userTable tbody')
-        tbody.innerHTML = '';
+        tbody.innerHTML = ''; // Replaces the table data fields with empty space
 
         users.forEach(user => {
             const tr = document.createElement('tr');
@@ -23,7 +23,6 @@ async function showUsers(){
                <td>${user.id}</td> 
                <td>${user.name}</td> 
                <td>${user.username}</td> 
-               <td>${user.phone}</td> 
                <td>${user.email}</td> 
                <td>${user.website}</td> 
             `;
@@ -37,7 +36,7 @@ async function showUsers(){
 
 async function showPosts(userId){
     try{
-        const posts = await get(postUrl + userId);
+        const posts = await get(postUrl + userId); // Post url looks for a userID, so we must add our userID to the url
         const tbody = document.querySelector('#postTable tbody');
         tbody.innerHTML = '';
 
