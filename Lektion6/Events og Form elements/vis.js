@@ -1,7 +1,6 @@
 //Opgave 6.1
 
 // This solution is *NOT* future proof, as it requires the developer to hardcode each input
-document.addEventListener('DOMContentLoaded', () => {
     const talInput = document.getElementById('tal');
     const tidInput = document.getElementById('tid');
 
@@ -14,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     tidInput.parentNode.insertBefore(timeLabel, tidInput);
 
     const randomNumber = () => {
-        talInput.value = Math.floor(Math.random() * 1000); // Random number generator
+        talInput.value = Math.trunc(Math.random() * 1000); // Random number generator
     };
     numberLabel.addEventListener('click', randomNumber);
     talInput.addEventListener('click', randomNumber);
@@ -31,4 +30,3 @@ document.addEventListener('DOMContentLoaded', () => {
         talInput.value = '';
         tidInput.value = '';
     });
-});
