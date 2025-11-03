@@ -1,0 +1,28 @@
+
+window.onload = async () => {
+    await loadEarthquakes()
+}
+
+function generateEarthquakeTable(earthquakes) {
+    let html = '<table>';
+    for (let quake of earthquakes) {
+        let { time, place, mag } = quake.properties;
+        html += '<tr><td>' + mag +
+            '</td><td>' + place +
+            '</td><td>' + new Date(time).toLocaleString() +
+            '</td></tr>\n';
+    }
+    html += '</table><br><div></div>';
+    return html;
+}
+
+// var test = window.location.pathname.split('/')[2];
+
+
+const minMag = Number() || 5;
+
+async function loadEarthquakes() {
+    const response = await fetch(`/api/earthquakes/${minMag}`);
+    const earthquakes = await response.json();
+    document.querySelector('#output').innerHTML = generateEarthquakeTable(earthquakes);
+}
