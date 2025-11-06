@@ -1,0 +1,7 @@
+include includes/header
+body 
+    if users
+        h2 Current Users
+        ul
+            each user in users
+                li= user.name
