@@ -23,6 +23,7 @@ class Studerende extends Person {
         super(navn);
         this.id = id;
     }
+    
     toString() { return super.toString() + ": " + this.id; };
 
     static equals(person){
