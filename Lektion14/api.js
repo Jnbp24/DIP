@@ -4,11 +4,18 @@ import carsRouter from './cars.js';
 const app = express();
 const PORT = 8080;
 
-app.use(express.json());
-app.use(express.urlencoded({extended: true}));
+// Templating - looks for pug files in views folder always
+app.set('view engine', 'pug');
+
 app.use(express.static('assets'));
 
+// Middleware to be able to parse request bodies, i.e - can use request.body
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
+
 app.use('/cars', carsRouter); // Mount cars.js with a /cars infront of its endpoints
+
+
 
 
 
@@ -21,6 +28,9 @@ app.use((request, response, next) => { // Final middleware to catch any bad requ
     response.status(404).redirect('/404.html')
 })
 
-app.listen(PORT, () => {
+app.listen(PORT, (error) => {
+    if(error) {
+        console.log(`Something went wrong when running on http://localhost:${PORT}`)
+    }
     console.log(`Server is running on http://localhost:${PORT}`);
 })

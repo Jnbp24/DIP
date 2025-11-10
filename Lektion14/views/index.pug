@@ -1,0 +1,9 @@
+include includes/head
+body
+    h1 Welcome to my car site
+    h2 Here is a list of my cars 
+include includes/addModel   
+    ul
+        each model in models
+            li= model.name 
+                img(src="/images/" + model.image)
