@@ -1,8 +1,4 @@
 
-window.onload = async () => {
-    await loadEarthquakes()
-}
-
 function generateEarthquakeTable(earthquakes) {
     let html = '<table>';
     for (let quake of earthquakes) {
@@ -16,13 +12,13 @@ function generateEarthquakeTable(earthquakes) {
     return html;
 }
 
-// var test = window.location.pathname.split('/')[2];
-
-
-const minMag = Number() || 5;
+const pathParts = window.location.pathname.split('/');
+const minMag = parseInt(pathParts[2]) || 5;
 
 async function loadEarthquakes() {
     const response = await fetch(`/api/earthquakes/${minMag}`);
     const earthquakes = await response.json();
     document.querySelector('#output').innerHTML = generateEarthquakeTable(earthquakes);
 }
+
+window.addEventListener('DOMContentLoaded',loadEarthquakes())
