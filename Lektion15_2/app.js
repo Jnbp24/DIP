@@ -8,9 +8,9 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
 let users = [
-  {name: "Simon"},
-  {name: "Alfred"},
-  {name: "Theodore"}
+  {name: "Simon", age: 17, gender: "Male"},
+  {name: "Alfred", age: 21, gender: "Male"},
+  {name: "Theodore", age: 18, gender: "Non-Binary"}
 ];
 
 app.get('/', (request, response) => {
@@ -22,7 +22,7 @@ app.get('/allUsers', (request, response) => {
 })
 
 app.post('/createUser', (request, response) => {
-    const newUser = {name: request.body.name} 
+    const newUser = {name: request.body.name, age: request.body.age, gender: request.body.gender} 
     users.push(newUser);
     response.render('users', {title: "Users", users: users});
 })
