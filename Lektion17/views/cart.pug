@@ -1,0 +1,20 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Your Cart
+    body 
+        h1 Items in your cart 
+
+        if cart.length === 0
+            p Cart is empty.
+            a(href="/") Back to shop
+        else
+            ul 
+                each item in cart
+                    li    #{item.name} - #{item.price}kr - Quantity: #{item.quantity}
+            
+            h2 Total: #{total} kr 
+
+            a(href="/") Back to shop  

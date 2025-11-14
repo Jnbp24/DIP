@@ -1,0 +1,18 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Item list 
+    body 
+        h1 Items for sale init brev
+
+        ul 
+            each item in items 
+                li 
+                    h2 #{item.name}
+                    p Description: #{item.description}
+                    p Price: #{item.price} Kr
+                    a(href="/cart/" + item.id + "/1") Add to cart
+
+        a(href="/cart") View Cart (#{cartCount})
