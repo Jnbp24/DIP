@@ -26,7 +26,8 @@ const items = [
 
 app.use((request, response, next) =>{
     if(!request.session.cart){
-        request.session.cart = [] //
+        request.session.cart = [] // Creates new cart per session
+    
     }
     next()
 })
@@ -40,50 +41,29 @@ app.get('/', (request, response) => {
     })
 })
 
-
-// Add to cart 
-app.get('/cart/:id', (request,response) => {
-    const id = parseInt(request.params.id)
-
-    const item = items.find(i => i.id === id); // Find the matching id in the items array
-    if(!item){
-        return response.status(404).send("Item not found")
-    }
-
-    request.session.cart.push(item); // Add the item to the session cart
-
-    
-    response.redirect('/') // Redirect back to the home page after adding the item
-})
-
-app.get('/cart/:id/:quantity', (request, response) => {
+app.post('/cart/:id', (request, response) => {
     const id = parseInt(request.params.id);
-    const quantity = parseInt(request.params.quantity);
+    const item = items.find(i => i.id === id);
+    if (!item) return response.status(404).send("Item not found");
 
+    const quantity = request.body.quantity ? parseInt(request.body.quantity) : 1 // Get quantity from body, or default to 1
 
-    const item = items.find(i => i.id === id) // Look for the specific id
-    if(!item){
-        return response.status(404).send("Item not found")
-    }
+    const existingItem = request.session.cart.find(i => i.id === id);
 
-    const existingItem = request.session.cart.find(i => i.id === id) // Check if item already exists in cart
-
-    if(existingItem){
-        existingItem.quantity += quantity // Increase quantity of specific item
+    if (existingItem) {
+        existingItem.quantity += quantity;
     } else {
-        request.session.cart.push({ // If item does not exist, push it to the session cart
+        request.session.cart.push({
             id: item.id,
             name: item.name,
             price: item.price,
+            description: item.description,
             quantity: quantity
-        })
+        });
     }
 
-    response.redirect('/cart') // Redirect to the cart page 
-
-
-})
-
+    response.redirect('/cart');
+});
 
 
 // View Cart
@@ -98,9 +78,6 @@ app.get('/cart', (request, response) => {
         total: total
     })
 })
-
-
-
 
 
 

@@ -1,18 +1,27 @@
 doctype html
 html(lang="en")
-    head
-        meta(charset="UTF-8")
-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        title Item list 
-    body 
-        h1 Items for sale init brev
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Items
+    script(src="/clientside.js")
+  body
+    h1 Items for Sale
 
-        ul 
-            each item in items 
-                li 
-                    h2 #{item.name}
-                    p Description: #{item.description}
-                    p Price: #{item.price} Kr
-                    a(href="/cart/" + item.id + "/1") Add to cart
+    ul
+      each item in items
+        li
+          h2 #{item.name}
+          p Description: #{item.description}
+          p Price: #{item.price} Kr
+          
+          div
+            form(action=`/cart/${item.id}`, method="POST")
+              button(type="submit") Add 1 to Cart
 
-        a(href="/cart") View Cart (#{cartCount})
+            form(action=`/cart/${item.id}`, method="POST")
+              input(type="number" name="quantity" value="1" min="1")
+              button(type="submit") Add Custom Quantity
+            
+
+    a(href="/cart") View Cart (#{cartCount})
