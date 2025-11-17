@@ -1,0 +1,12 @@
+include header
+include menu
+h1 Velkommen til min blog igen! 
+if isLoggedIn
+    h2 Du er logget ind. Tillykke med det :)
+else 
+        label Username:
+            input(type="text", name="username", id="username")
+        label Password: 
+            input(type="password", name="password", id="password")
+        button#login Login
+span#fejl
