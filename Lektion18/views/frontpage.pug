@@ -1,0 +1,11 @@
+include includes/header 
+h1 Contents of the PUBLIC folder 
+ul 
+    each item in files  
+        li 
+            - const isFolder = !item.includes('.')
+            if isFolder
+                a(href=`/${folder ? folder + '/' : ''}${item}/`)= item
+            else
+                a(href=`/${folder}/${item}`)= item 
+            button.removeButton(type="button" data-file=`${folder}${item}`) Remove  
